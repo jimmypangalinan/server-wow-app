@@ -21,10 +21,14 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "jkuzmcsacsjmct",
-    "password": "bdddc77738267e6aba3d3c2b7ece90237774afe337c47dc4d493f717a1d2b032",
-    "database": "dv18csq7brsqs",
-    "host": "ec2-54-157-79-121.compute-1.amazonaws.com",
-    "dialect": "postgres"
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres",
+    "protocol": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   }
 }
