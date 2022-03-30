@@ -22,7 +22,7 @@ module.exports = {
           role: 'admin',
           status: 'Not Subscribe',
           createdAt: '2022-02-20',
-          updateddAt: '2022-02-20'
+          updatedAt: '2022-02-20'
         },
       ],
       {}
