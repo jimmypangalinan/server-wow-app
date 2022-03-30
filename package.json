@@ -1,4 +1,16 @@
 {
+  "name": "be-wow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+   "scripts": {
+    "start": "node index.js",
+    "client": "npm start --prefix ../client",
+    "dev": "concurrently \"npm start\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  
   "dependencies": {
     "bcrypt": "^5.0.1",
     "concurrently": "^7.0.0",
@@ -15,18 +27,9 @@
     "sequelize-cli": "^6.4.1",
     "socket.io": "^4.4.1"
   },
-  "name": "be-wow",
-  "version": "1.0.0",
-  "main": "index.js",
   "devDependencies": {
     "nodemon": "^2.0.15"
-  },
-  "scripts": {
-    "start": "node index.js",
-    "client": "npm start --prefix ../client",
-    "dev": "concurrently \"npm start\" \"npm run client\""
-  },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  }
+
+  
 }
