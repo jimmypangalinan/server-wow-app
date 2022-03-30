@@ -11,19 +11,7 @@ const { Server } = require("socket.io");
 const router = require("./src/routes/index");
 const app = express();
 
-// const cron = require("node-cron");
-
-// cron.schedule("*/5 * * * * *", async function () {
-//   console.log("running a task");
-
-//   await transaction.update({
-//     ...transaction,
-//     startDate: new Date(),
-//     remainigActive: 20,
-//   });
-// });
-
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors());
