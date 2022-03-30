@@ -1,0 +1,15 @@
+tb_transaksi
+admin  > get all transaksi, delete, update
+user > add transaksi (Maksimal 1)
+
+tb_user
+rolenya ubah di databse > default user change admin 
+navigatenya arahkan ke transaction
+
+FE 
+readbook > buatkan data dummy untuk memanggil endpoint epub filenya
+
+Belum selesai :
+1. Controller profile
+
+
