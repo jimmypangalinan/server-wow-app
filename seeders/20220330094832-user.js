@@ -20,7 +20,9 @@ module.exports = {
             '$2b$10$7ovHDrtaMe.FmutXxEhnWOo7rDOdTloUMgqms5RXYmL5/4dfM.OTm', //123456
           fullName: 'admin',
           role: 'admin',
-          status: 'Not Subscribe'
+          status: 'Not Subscribe',
+          createdAt: '2022-02-20',
+          updateddAt: '2022-02-20'
         },
       ],
       {}
