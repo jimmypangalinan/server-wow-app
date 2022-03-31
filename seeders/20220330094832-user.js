@@ -11,22 +11,22 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-     await queryInterface.bulkInsert(
-      'users',
-      [
-        {
-          email: 'admin@mail.com',
-          password:
-            '$2b$10$7ovHDrtaMe.FmutXxEhnWOo7rDOdTloUMgqms5RXYmL5/4dfM.OTm', //123456
-          fullName: 'admin',
-          role: 'admin',
-          status: 'Not Subscribe',
-          createdAt: '2022-02-20',
-          updatedAt: '2022-02-20'
-        },
-      ],
-      {}
-    );
+    //  await queryInterface.bulkInsert(
+    //   'users',
+    //   [
+    //     {
+    //       fullName: 'admin Handal',
+    //       email: 'admin@mail.com',
+    //       password:
+    //         '$2b$10$7ovHDrtaMe.FmutXxEhnWOo7rDOdTloUMgqms5RXYmL5/4dfM.OTm', //123456
+    //       role: 'admin',
+    //       status: 'Subscribe',
+    //       createdAt: '2022-02-20',
+    //       updatedAt: '2022-02-20'
+    //     },
+    //   ],
+    //   {}
+    // );
   },
 
   async down (queryInterface, Sequelize) {
