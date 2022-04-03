@@ -36,9 +36,9 @@ exports.addTransaction = async (req, res) => {
       data: {
         transaction: {
           createTransaction,
-          transferProof:
-            "https://server-window-of-world.herokuapp.com/uploads/transferproof/" +
-            createTransaction.transferProof,
+          // transferProof:
+          //   "https://server-window-of-world.herokuapp.com/uploads/transferproof/" +
+          //   createTransaction.transferProof,
         },
       },
     });
