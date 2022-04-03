@@ -1,5 +1,4 @@
 const { transaction, user } = require("../../models");
-const cron = require("node-cron");
 
 // add new transaction
 exports.addTransaction = async (req, res) => {
