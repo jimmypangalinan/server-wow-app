@@ -25,8 +25,8 @@ exports.addTransaction = async (req, res) => {
       transferProof: req.file.filename,
       accountNumber: req.body.accountNumber,
       remainingActive: 0,
-      startDate: "",
-      endDate: "",
+      startDate: "0000-00-00",
+      endDate: "0000-00-00",
       userStatus: "Not Active",
       paymentStatus: "Pending",
     });
@@ -44,9 +44,9 @@ exports.addTransaction = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(201).send({
+    res.status(400).send({
       status: "Bad Request",
-      message: "Please Login to make transaction",
+      message: "Catch Errorr . . . . ",
     });
   }
 };
