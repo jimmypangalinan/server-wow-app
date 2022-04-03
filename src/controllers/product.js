@@ -32,7 +32,7 @@ exports.addProduct = async (req, res) => {
       cover: "https://server-window-of-world.herokuapp.com/uploads/cover/" + createProducts.cover,
     });
   } catch (error) {
-    res.status(400).send({
+    res.status(201).send({
       status: "failed",
       message: 'error catch',
       error
