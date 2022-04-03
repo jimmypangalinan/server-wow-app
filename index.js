@@ -11,8 +11,8 @@ const { Server } = require("socket.io");
 const router = require("./src/routes/index");
 const app = express();
 
-const port = 5000;
-// const port = process.env.PORT || 5000;
+// const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors());
