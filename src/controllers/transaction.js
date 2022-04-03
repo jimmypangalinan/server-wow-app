@@ -44,7 +44,7 @@ exports.addTransaction = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(201).send({
+    res.status(400).send({
       status: "Bad Request",
       message: "Catch Errorr . . . . ",
       error
@@ -210,8 +210,8 @@ exports.updateTransaction = async (req, res) => {
       await transaction.update(
         {
           ...newUpdate,
-          startDate: "0000-00-00",
-          endDate: "0000-00-00",
+          startDate: new Date(),
+          endDate: new Date(),
           remainingActive: 0,
         },
         {
