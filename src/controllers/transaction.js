@@ -37,14 +37,14 @@ exports.addTransaction = async (req, res) => {
         transaction: {
           createTransaction,
           transferProof:
-            "http://localhost:5000/uploads/transferproof/" +
+            "https://server-window-of-world.herokuapp.com/uploads/transferproof/" +
             createTransaction.transferProof,
         },
       },
     });
   } catch (error) {
     console.log(error);
-    res.status(400).send({
+    res.status(201).send({
       status: "Bad Request",
       message: "Please Login to make transaction",
     });
