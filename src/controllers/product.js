@@ -2,20 +2,21 @@ const { product } = require("../../models");
 
 // Add New Product
 exports.addProduct = async (req, res) => {
-  try {
-    const productExist = await product.findOne({
-      where: {
-        title: req.body.title,
-      },
+  const productExist = await product.findOne({
+    where: {
+      title: req.body.title,
+    },
+  });
+
+  if (productExist) {
+    return res.status(200).send({
+      Status: "failed",
+      message: "Title Allready Exist",
     });
+  }
 
-    if (productExist) {
-      return res.status(200).send({
-        Status: "failed",
-        message: "Title Allready Exist",
-      });
-    }
-
+  try {
+    
     let newProduct = req.body;
 
     let createProduct = await product.create({
@@ -24,12 +25,13 @@ exports.addProduct = async (req, res) => {
       cover: req.files.cover[0].filename,
     });
 
-    let createProducts = JSON.parse(JSON.stringify(createProduct));
-    console.log(createProduct);
-    res.status(201).send({
+    // let createProducts = JSON.parse(JSON.stringify(createProduct));
+    // console.log(createProduct);
+
+    res.status(200).send({
       status: "Success",
-      ...createProducts,
-      cover: "https://server-window-of-world.herokuapp.com/uploads/cover/" + createProducts.cover,
+      // ...createProducts,
+      // cover: "https://server-window-of-world.herokuapp.com/uploads/cover/" + createProducts.cover,
     });
   } catch (error) {
     res.status(201).send({
