@@ -29,11 +29,13 @@ exports.addProduct = async (req, res) => {
     res.status(201).send({
       status: "Success",
       ...createProducts,
-      cover: "http://localhost:5000/uploads/cover/" + createProducts.cover,
+      cover: "https://server-window-of-world.herokuapp.com/uploads/cover/" + createProducts.cover,
     });
   } catch (error) {
     res.status(400).send({
       status: "failed",
+      message: 'error catch',
+      error
     });
   }
 };
