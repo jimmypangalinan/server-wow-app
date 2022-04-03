@@ -25,8 +25,8 @@ exports.addTransaction = async (req, res) => {
       transferProof: req.file.filename,
       accountNumber: req.body.accountNumber,
       remainingActive: 0,
-      startDate: "0000-00-00",
-      endDate: "0000-00-00",
+      startDate: "2022-03-10",
+      endDate: "2022-04-10",
       userStatus: "Not Active",
       paymentStatus: "Pending",
     });
