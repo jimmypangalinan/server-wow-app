@@ -30,7 +30,9 @@ exports.addProduct = async (req, res) => {
 
     res.status(201).send({
       status: "Success",
-      createProducts,
+      ...createProducts,
+      // cover: "https://server-window-of-world.herokuapp.com/uploads/cover/" + createProducts.cover,
+      cover: "https://wow-app-server-v1.herokuapp.com/uploads/cover/" + createProducts.cover,
     });
 
   } catch (error) {
@@ -79,7 +81,8 @@ exports.getProduct = async (req, res) => {
     res.send({
       status: "Success",
       book: {
-        data
+        data,
+        // cover: "https://wow-app-server-v1.herokuapp.com/uploads/cover/" + createProducts.cover,
       },
     });
   } catch (error) {
