@@ -32,7 +32,7 @@ exports.addProduct = async (req, res) => {
       status: "Success",
       ...createProducts,
       // cover: "https://server-window-of-world.herokuapp.com/uploads/cover/" + createProducts.cover,
-      cover: "http://localhost:5000/uploads/cover/" + createProducts.cover,
+      cover: "https://wow-app-server-v1.herokuapp.com/uploads/cover/" + createProducts.cover,
     });
 
   } catch (error) {
@@ -81,7 +81,7 @@ exports.getProduct = async (req, res) => {
     res.send({
       status: "Success",
       book: {
-        ...data,
+        data,
         cover: process.env.FILE_PATH + data.cover,
       },
     });
