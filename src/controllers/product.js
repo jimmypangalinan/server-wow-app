@@ -25,17 +25,19 @@ exports.addProduct = async (req, res) => {
       cover: req.files.cover[0].filename,
     });
 
-    // let createProducts = JSON.parse(JSON.stringify(createProduct));
-    // console.log(createProduct);
+    let createProducts = JSON.parse(JSON.stringify(createProduct));
+    console.log(createProduct);
 
-    res.status(200).send({
-      status: "Success",
-      // ...createProducts,
-      // cover: "https://server-window-of-world.herokuapp.com/uploads/cover/" + createProducts.cover,
-    });
-  } catch (error) {
     res.status(201).send({
-      status: "failed",
+      status: "Success",
+      ...createProducts,
+      // cover: "https://server-window-of-world.herokuapp.com/uploads/cover/" + createProducts.cover,
+      cover: "http://localhost:5000/uploads/cover/" + createProducts.cover,
+    });
+
+  } catch (error) {
+    res.status(400).send({
+      status: "Failed",
       message: 'error catch',
       error
     });
