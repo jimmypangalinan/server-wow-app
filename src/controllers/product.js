@@ -26,13 +26,18 @@ exports.addProduct = async (req, res) => {
       unique_filename: false,
     });
 
-    console.log(req.body);
     let newProduct = req.body;
     console.log(newProduct);
 
     let createProduct = await product.create({
-      ...newProduct,
+      title: req.body.title,
+      publicationDate: req.body.publicationDate,
+      pages: req.body.pages,
+      author: req.body.author,
+      isbn: req.body.isbn,
+      about: req.body.about,
       // bookFile: req.files.bookFile[0].filename,
+      bookFile: "image.jpg",
       cover: req.file.cover.filename,
     });
 
