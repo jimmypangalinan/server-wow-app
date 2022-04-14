@@ -20,7 +20,7 @@ exports.addProduct = async (req, res) => {
 
   try {
 
-    const result = await cloudinary.uploader.upload(req.files.path, {
+    const result = await cloudinary.uploader.upload(req.file.path, {
       folder: 'wow-app',
       use_filename: true,
       unique_filename: false,
@@ -32,8 +32,8 @@ exports.addProduct = async (req, res) => {
 
     let createProduct = await product.create({
       ...newProduct,
-      bookFile: req.files.bookFile[0].filename,
-      cover: req.files.cover[0].filename,
+      // bookFile: req.files.bookFile[0].filename,
+      cover: req.file.cover.filename,
     });
 
 
