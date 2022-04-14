@@ -38,7 +38,7 @@ exports.addProduct = async (req, res) => {
       about: req.body.about,
       // bookFile: req.files.bookFile[0].filename,
       bookFile: "image.jpg",
-      cover: req.file.cover.filename,
+      cover:  req.file.filename,
     });
 
 
