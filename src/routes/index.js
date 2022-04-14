@@ -57,7 +57,7 @@ router.patch("/updateUser/:id", updateUser);
 router.delete("/deleteUser/:id", deleteUser);
 
 // product
-router.post("/addProduct", uploadFile("bookFile", "cover"), addProduct);
+router.post("/addProduct", auth, uploadFile("bookFile", "cover"), addProduct);
 router.get("/books", getProducts);
 router.get("/book/:id", getProduct);
 router.patch("/book/:id", auth, updateProduct);

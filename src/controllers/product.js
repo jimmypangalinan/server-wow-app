@@ -26,7 +26,9 @@ exports.addProduct = async (req, res) => {
       unique_filename: false,
     });
 
+    console.log(req.body);
     let newProduct = req.body;
+    console.log(newProduct);
 
     let createProduct = await product.create({
       ...newProduct,
@@ -49,6 +51,7 @@ exports.addProduct = async (req, res) => {
       message: 'error catch',
       error
     });
+    console.log(error);
   }
 };
 
