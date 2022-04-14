@@ -138,6 +138,7 @@ exports.getTransaction = async (req, res) => {
         status: "Success",
         data: {
           transaction: transactionExist,
+          path: process.env.FILE_PATH
         },
       });
     }
@@ -275,6 +276,7 @@ exports.updateTransaction = async (req, res) => {
       status: "Success",
       data: {
         dataUpdate,
+        path: process.env.FILE_PATH
       },
     });
   } catch (error) {

@@ -4,9 +4,11 @@ exports.uploadFile = (bookFile, imageFile) => {
   const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       if (file.fieldname === imageFile) {
-        cb(null, "uploads/cover");
+        cb(null, "wow-app");
+        // cb(null, "uploads/cover");
       } else {
-        cb(null, "uploads/books");
+        cb(null, "wow-app");
+        // cb(null, "uploads/books");
       }
     },
 

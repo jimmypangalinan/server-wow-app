@@ -5,7 +5,8 @@ exports.uploadProfile = (image) => {
   // code here
   const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, "uploads/profile");
+      cb(null, "wow-app");
+      // cb(null, "uploads/profile");
     },
     filename: function (req, file, cb) {
       cb(null, Date.now() + "-" + file.originalname.replace(/\s/g, ""));
