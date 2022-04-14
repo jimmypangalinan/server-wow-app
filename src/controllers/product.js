@@ -1,7 +1,10 @@
 const { product } = require("../../models");
 
+const cloudinary = require('../utils/cloudinary');
+
 // Add New Product
 exports.addProduct = async (req, res) => {
+
   const productExist = await product.findOne({
     where: {
       title: req.body.title,
@@ -16,7 +19,13 @@ exports.addProduct = async (req, res) => {
   }
 
   try {
-    
+
+    const result = await cloudinary.uploader.upload(req.file.path, {
+      folder: 'wow-app',
+      use_filename: true,
+      unique_filename: false,
+    });
+
     let newProduct = req.body;
 
     let createProduct = await product.create({
@@ -25,14 +34,13 @@ exports.addProduct = async (req, res) => {
       cover: req.files.cover[0].filename,
     });
 
+
     let createProducts = JSON.parse(JSON.stringify(createProduct));
-    console.log(createProduct);
 
     res.status(201).send({
       status: "Success",
       createProducts,
-      // cover: "https://server-window-of-world.herokuapp.com/uploads/cover/" + createProducts.cover,
-      // cover: "https://wow-app-server-v1.herokuapp.com/uploads/cover/" + createProducts.cover,
+      path: process.env.FILE_PATH
     });
 
   } catch (error) {
@@ -49,14 +57,12 @@ exports.getProducts = async (req, res) => {
   try {
     const products = await product.findAll({
       order: [["createdAt", "DESC"]],
-      // attributes: {
-      //   exclude: ["createdAt", "updatedAt"],
-      // },
     });
     res.send({
       status: "Success",
       data: {
         books: products,
+        path: process.env.FILE_PATH
       },
     });
   } catch (error) {
@@ -82,7 +88,7 @@ exports.getProduct = async (req, res) => {
       status: "Success",
       book: {
         data,
-        // cover: "https://wow-app-server-v1.herokuapp.com/uploads/cover/" + createProducts.cover,
+        path: process.env.FILE_PATH
       },
     });
   } catch (error) {
@@ -92,6 +98,13 @@ exports.getProduct = async (req, res) => {
 
 // updtae product by id
 exports.updateProduct = async (req, res) => {
+
+  const result = await cloudinary.uploader.upload(req.file.path, {
+    folder: 'wow-app',
+    use_filename: true,
+    unique_filename: false,
+  });
+
   try {
     const newData = req.body;
     const updateProduct = await product.update(newData, {

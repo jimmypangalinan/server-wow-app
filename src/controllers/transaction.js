@@ -1,8 +1,10 @@
 const { transaction, user } = require("../../models");
 
+const cloudinary = require('../utils/cloudinary');
+
 // add new transaction
 exports.addTransaction = async (req, res) => {
-  
+
   const detailTrans = await transaction.findOne({
     where: {
       idUser: req.user.id,
@@ -19,6 +21,13 @@ exports.addTransaction = async (req, res) => {
   console.log(req.body.accountNumber);
 
   try {
+
+    const result = await cloudinary.uploader.upload(req.file.path, {
+      folder: 'wow-app',
+      use_filename: true,
+      unique_filename: false,
+    });
+
     console.log(req.body);
     const createTransaction = await transaction.create({
       idUser: req.user.id,
@@ -36,9 +45,6 @@ exports.addTransaction = async (req, res) => {
       data: {
         transaction: {
           createTransaction,
-          // transferProof:
-          //   "https://server-window-of-world.herokuapp.com/uploads/transferproof/" +
-          //   createTransaction.transferProof,
         },
       },
     });
@@ -82,10 +88,10 @@ exports.getTransactions = async (req, res) => {
     } else {
       res.status(200).send({
         status: "Success",
-   
+
         data: {
           transactionExist,
-         
+
         },
       });
     }

@@ -6,12 +6,12 @@ const jwt = require("jsonwebtoken");
 
 // add new user
 exports.register = async (req, res) => {
+
   const schema = Joi.object({
     fullName: Joi.string().min(5).required(),
     email: Joi.string().email().min(5).required(),
     password: Joi.string().min(5).required(),
   });
-  
 
   const { error } = schema.validate(req.body);
 
@@ -80,6 +80,7 @@ exports.register = async (req, res) => {
 
 // get user login
 exports.login = async (req, res) => {
+
   const schema = Joi.object({
     email: Joi.string().email().min(5).required(),
     password: Joi.string().min(5).required(),
@@ -102,6 +103,7 @@ exports.login = async (req, res) => {
 
     const isValid = await bcrypt.compare(req.body.password, userExist.password);
     console.log(isValid);
+
     if (!isValid) {
       return res.status(200).send({
         status: "Email or Password Wrong",
@@ -124,7 +126,9 @@ exports.login = async (req, res) => {
         userExist,
       },
     });
+
   } catch (error) {
+
     console.log(error);
     res.status(400).send({
       status: "Bad Request",
@@ -135,6 +139,7 @@ exports.login = async (req, res) => {
 
 exports.checkAuth = async (req, res) => {
   try {
+
     const id = req.user.id;
 
     const dataUser = await user.findOne({
@@ -155,7 +160,6 @@ exports.checkAuth = async (req, res) => {
     res.send({
       status: "Success",
       data: {
-        // dataUser,
         user: {
           id: dataUser.id,
           name: dataUser.name,
@@ -164,7 +168,9 @@ exports.checkAuth = async (req, res) => {
         },
       },
     });
+
   } catch (error) {
+
     console.log(error);
     res.status({
       status: "failed",
